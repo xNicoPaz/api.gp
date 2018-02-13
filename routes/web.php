@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::post('/members', 'MemberController@store');
 Route::get('/members', 'MemberController@index');
 Route::get('/members/{member}', 'MemberController@show');
+Route::post('/members/{member}/update', 'MemberController@update');

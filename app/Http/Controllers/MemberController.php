@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Member;
 use Illuminate\Http\Request;
 use App\Http\Requests\MemberRequest;
+use App\Http\Requests\Members\UpdateRequest;
 
 class MemberController extends Controller
 {
@@ -70,7 +71,7 @@ class MemberController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Member  $member
@@ -78,7 +79,14 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        $member->first_name = $request['first_name'];
+        $member->last_name = $request['last_name'];
+        $member->age = $request['age'];
+        $member->sex = $request['sex'];        
+        
+        $member->save();
+
+        return $member;
     }
 
     /**
